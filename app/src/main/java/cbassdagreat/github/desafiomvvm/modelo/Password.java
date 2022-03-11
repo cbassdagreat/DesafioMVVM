@@ -2,11 +2,11 @@ package cbassdagreat.github.desafiomvvm.modelo;
 
 import android.widget.TextView;
 
-public class PassStark {
+public class Password {
 
     private String password;
 
-    public PassStark(String password) {
+    public Password(String password) {
         this.password = password;
     }
 

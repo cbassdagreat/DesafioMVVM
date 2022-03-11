@@ -5,10 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="cbassdagreat.github.desafiomvvm.modelo.PassStark"/>
+        <import type="cbassdagreat.github.desafiomvvm.modelo.Password"/>
         <variable
             name="pass"
-            type="PassStark" />
+            type="cbassdagreat.github.desafiomvvm.modelo.Password" />
 
     </data>
 
