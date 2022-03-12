@@ -5,9 +5,11 @@ import android.widget.TextView;
 public class Password {
 
     private String password;
+    private int color;
 
-    public Password(String password) {
+    public Password(String password, int color) {
         this.password = password;
+        this.color = color;
     }
 
     public String getPassword() {
@@ -18,10 +20,11 @@ public class Password {
         this.password = password;
     }
 
-    @Override
-    public String toString() {
-        return "passStark{" +
-                "password='" + password + '\'' +
-                '}';
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 }

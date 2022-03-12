@@ -15,8 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
     private PasswordViewModel viewModel;
     private ActivityMainBinding binding;
-    private int cont = 0;
-
 
 
     @Override
@@ -26,11 +24,6 @@ public class MainActivity extends AppCompatActivity {
         viewModel = new ViewModelProvider(this).get(PasswordViewModel.class);
         setContentView(binding.getRoot());
         binding.setLifecycleOwner(this);
-
-
-        String password = binding.etPass.getText().toString();
-        //viewModel.
-
         binding.etPass.addTextChangedListener((new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -39,41 +32,21 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    viewModel.analysis(s.toString());
 
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                String pass = s.toString();
-                //viewModel.hasCaps(pass, binding.etPass, g);
-                //viewModel.hasLength(pass, binding.etPass,;
-                //viewModel.hasNum(pass,binding.etPass,getContext());
-
-
-
             }
         }));
 
 
+
+
     }
 
-    public void security(int cont) {
-        if (cont == 0) {
-            binding.tvPassStrength.setText(R.string.debil);
-            binding.tvPassStrength.setBackgroundColor(Color.RED);
 
-        }else if (cont == 1){
-            binding.tvPassStrength.setText(R.string.media);
-            binding.tvPassStrength.setBackgroundColor(Color.MAGENTA);
-
-        }else if (cont == 2) {
-            binding.tvPassStrength.setText(R.string.fuerte);
-            binding.tvPassStrength.setBackgroundColor(Color.YELLOW);
-        }
-        else {
-            binding.tvPassStrength.setText(R.string.super_fuerte);
-            binding.tvPassStrength.setBackgroundColor(Color.GREEN);
-        }
 
     }
 

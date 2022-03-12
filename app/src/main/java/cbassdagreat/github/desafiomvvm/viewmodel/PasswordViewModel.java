@@ -1,43 +1,48 @@
 package cbassdagreat.github.desafiomvvm.viewmodel;
 
+import android.app.Application;
+import android.graphics.Color;
+import android.util.AndroidException;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import cbassdagreat.github.desafiomvvm.R;
 import cbassdagreat.github.desafiomvvm.modelo.Password;
+import cbassdagreat.github.desafiomvvm.util.Verify;
 
-public class PasswordViewModel extends ViewModel {
+public class PasswordViewModel extends AndroidViewModel {
     private MutableLiveData<Password> passwordMutable = new MutableLiveData<>();
-    private MutableLiveData<Integer> toast = new MutableLiveData<>();
+    private Verify verifier = new Verify();
 
-    public boolean hasCaps(String pass) {
+    public PasswordViewModel(@NonNull Application application) {
 
-        for (int i = 0; i < pass.length(); i++)
-        {
-            if (Character.isUpperCase(pass.charAt(i))){
-                return true;
-            }
+        super(application);
+
+    }
+
+    public MutableLiveData<Password> getPasswordMutable() {
+        return passwordMutable;
+    }
+
+    public void analysis(String pass) {
+
+        int v = verifier.evaluate(pass);
+        Password p;
+        switch(v) {
+            case 1: p = new Password(getApplication().getString(R.string.debil),getApplication().getColor(R.color.c_letras)); break;
+            case 2: p = new Password(getApplication().getString(R.string.numeros),getApplication().getColor(R.color.c_numeros)); break;
+            default: p = new Password(getApplication().getString(R.string.mixto),getApplication().getColor(R.color.c_mixto));
         }
-        return false;
+        passwordMutable.setValue(p); //ESTE MOMENTO HACE TRIGGER EL OBSERVABLE
     }
 
-    public boolean hasNum(String pass) {
-
-        for (int i = 0;i<pass.length();i++){
-            if (Character.isDigit(pass.charAt(i))){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean hasLength(String pass) {
-            boolean aux;
-            if (pass.length() <=5) {
-                aux = false;
-            } else{
-                aux = true;
-            }
-        return aux;
-    }
 
 }
+
+
+
+
+
