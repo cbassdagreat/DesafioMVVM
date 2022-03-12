@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DesafioMVVM</string>
+    <string name="debil">Débil</string>
+    <string name="media">Media</string>
+    <string name="fuerte">Fuerte</string>
+    <string name="super_fuerte">Súper Fuerte</string>
 </resources>
