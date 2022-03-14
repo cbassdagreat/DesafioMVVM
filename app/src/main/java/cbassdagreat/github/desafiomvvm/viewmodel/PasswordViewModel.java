@@ -32,9 +32,10 @@ public class PasswordViewModel extends AndroidViewModel {
         int v = verifier.evaluate(pass);
         Password p;
         switch(v) {
-            case 1: p = new Password(getApplication().getString(R.string.debil),getApplication().getColor(R.color.c_letras)); break;
-            case 2: p = new Password(getApplication().getString(R.string.numeros),getApplication().getColor(R.color.c_numeros)); break;
-            default: p = new Password(getApplication().getString(R.string.mixto),getApplication().getColor(R.color.c_mixto));
+            case 1: p = new Password(getApplication().getString(R.string.media),getApplication().getColor(R.color.c_media)); break;
+            case 2: p = new Password(getApplication().getString(R.string.fuerte),getApplication().getColor(R.color.c_fuerte)); break;
+            case 3: p = new Password(getApplication().getString(R.string.super_fuerte),getApplication().getColor(R.color.c_sfuerte));
+            default: p = new Password(getApplication().getString(R.string.debil),getApplication().getColor(R.color.c_debil));
         }
         passwordMutable.setValue(p); //ESTE MOMENTO HACE TRIGGER EL OBSERVABLE
     }

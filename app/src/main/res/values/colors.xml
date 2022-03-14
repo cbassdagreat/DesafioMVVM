@@ -9,7 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="c_debil">#FFFF0000</color>
     <color name="c_numeros">#00FFEA</color>
-    <color name="c_media">#26FF00</color>
-    <color name="c_fuerte">#26FF00</color>
+    <color name="c_media">#FF5722</color>
+    <color name="c_fuerte">#FFEB3B</color>
     <color name="c_sfuerte">#26FF00</color>
 </resources>

@@ -21,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
-        viewModel = new ViewModelProvider(this).get(PasswordViewModel.class);
         setContentView(binding.getRoot());
         binding.setLifecycleOwner(this);
+        viewModel = new ViewModelProvider(this).get(PasswordViewModel.class);
         binding.etPass.addTextChangedListener((new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -41,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
             }
         }));
 
+        viewModel.getPasswordMutable().observe(this,password -> {
+            binding.setPass(password);
+        });
+
 
 
 
@@ -52,4 +56,3 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-}

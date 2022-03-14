@@ -4,7 +4,4 @@
     <string name="media">Media</string>
     <string name="fuerte">Fuerte</string>
     <string name="super_fuerte">Súper Fuerte</string>
-    <string name="letras">Sólo letras</string>
-    <string name="numeros">Sólo Números</string>
-    <string name="mixto">Ambos</string>
 </resources>

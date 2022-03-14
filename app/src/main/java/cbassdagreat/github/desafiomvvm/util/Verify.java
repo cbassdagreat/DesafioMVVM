@@ -21,10 +21,9 @@ public class Verify {
         {
             return 3;
         }
-
         else
         {
-            return 0;
+            return 4;
         }
     }
 
@@ -37,10 +36,11 @@ public class Verify {
             if (Character.isUpperCase(letra))
             {
                 total++;
+                return true;
             }
             else
             {
-                break;
+                return false;
             }
         }
         return total == pass.length();
@@ -55,11 +55,12 @@ public class Verify {
             if (Character.isDigit(letra))
             {
                 total++;
+                return true;
             }
 
             else
             {
-                break;
+                return false;
             }
         }
         return total == pass.length();
@@ -70,13 +71,13 @@ public class Verify {
         int total = 0;
            if (pass.length() <= 5) {
                 total++;
+                return true;
             }
            else
            {
-               total = total + 0;
+               return false;
            }
-            return total == pass.length();
-        }
+    }
 
     }
 
